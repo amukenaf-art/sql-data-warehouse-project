@@ -1,1 +1,73 @@
+# Naming Conventions
 
+This document outlines the standard naming conventions used for schemas, tables, columns, and other objects in the data warehouse project. 
+
+## Table of Contents
+
+1. [General Principles](#1-general-principles)
+2. [Schema Naming Conventions](#2-schema-naming-conventions)
+3. [Table Naming Conventions](#3-table-naming-conventions)
+   * [Bronze Layer (Raw)](#bronze-layer-raw)
+   * [Silver Layer (Cleaned)](#silver-layer-cleaned)
+   * [Gold Layer (Aggregated)](#gold-layer-aggregated)
+4. [Column Naming Conventions](#4-column-naming-conventions)
+   * [Surrogate Keys](#surrogate-keys)
+   * [Technical Columns](#technical-columns)
+5. [Stored Procedures and Views](#5-stored-procedures-and-views)
+
+---
+
+## 1. General Principles
+
+- **Use Lowercase:** All database objects (schemas, tables, columns) should be written in lowercase snake_case to maintain consistency across SQL dialects.
+- **Be Descriptive:** Avoid cryptic abbreviations. Names should clearly indicate what business entity or data attribute they represent.
+- **Singular vs. Plural:** Use **singular** nouns for table names representing business entities (e.g., `customer`, `order`).
+
+---
+
+## 2. Schema Naming Conventions
+
+Schemas are used to separate data by its transformation layer or domain context:
+
+- `bronze`: Stores raw, uncleaned data ingested directly from source systems.
+- `silver`: Stores cleaned, conformed, and standardized data.
+- `gold`: Stores business-level aggregations, dimensional models, and data marts ready for reporting.
+
+---
+
+## 3. Table Naming Conventions
+
+Table names follow a structure that indicates their source or domain combined with the entity name.
+
+### Bronze Layer (Raw)
+- Format: `source_entity`
+- Example: `crm_customers`, `erp_orders`
+
+### Silver Layer (Cleaned)
+- Format: `entity`
+- Example: `customer`, `order_item`
+
+### Gold Layer (Aggregated)
+- Dimensions: `dim_<entity>` (e.g., `dim_customer`, `dim_product`)
+- Facts: `fact_<event>` (e.g., `fact_sales`, `fact_transactions`)
+
+---
+
+## 4. Column Naming Conventions
+
+### Surrogate Keys
+- Primary keys should be named using the entity name followed by `_id`.
+- Example: `customer_id`, `product_id`
+
+### Technical Columns
+Audit and tracking columns should use standardized prefixes/names:
+- `created_at`: Timestamp when the record was inserted.
+- `updated_at`: Timestamp when the record was last modified.
+- `source_file`: Name of the source file or ingestion pipeline batch.
+
+---
+
+## 5. Stored Procedures and Views
+
+- **Views:** Prefix views with `vw_` followed by the query purpose (e.g., `vw_customer_sales_summary`).
+- **Stored Procedures:** Prefix procedures with `sp_` followed by the action (e.g., `sp_load_bronze_customers`).
