@@ -7,13 +7,13 @@ This document outlines the standard naming conventions used for schemas, tables,
 1. [General Principles](#1-general-principles)
 2. [Schema Naming Conventions](#2-schema-naming-conventions)
 3. [Table Naming Conventions](#3-table-naming-conventions)
-   * [Bronze Layer (Raw)](#bronze-layer-raw)
-   * [Silver Layer (Cleaned)](#silver-layer-cleaned)
-   * [Gold Layer (Aggregated)](#gold-layer-aggregated)
-4. [Column Naming Conventions](#4-column-naming-conventions)
-   * [Surrogate Keys](#surrogate-keys)
-   * [Technical Columns](#technical-columns)
-5. [Stored Procedures and Views](#5-stored-procedures-and-views)
+4. [Bronze Layer (Raw)](#bronze-layer-raw)
+5. [Silver Layer (Cleaned)](#silver-layer-cleaned)
+6. [Gold Layer (Aggregated)](#gold-layer-aggregated)
+7. [Column Naming Conventions](#4-column-naming-conventions)
+8. [Surrogate Keys](#surrogate-keys)
+9. [Technical Columns](#technical-columns)
+10. [Stored Procedures and Views](#5-stored-procedures-and-views)
 
 ---
 
