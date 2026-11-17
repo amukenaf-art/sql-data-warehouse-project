@@ -18,8 +18,7 @@ CREATE TABLE bronze.crm_cust_info (
     cst_lastname    VARCHAR(50),
     cst_marital_status    VARCHAR(50),
     cst_gndr    VARCHAR(50),
-    cst_create_date    DATE,
-    _ingested_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    cst_create_date    DATE
   );
 
 -- 2. CRM Product Info
@@ -31,8 +30,7 @@ CREATE TABLE bronze.crm_prd_info (
     prd_cost    INT,
     prd_line    VARCHAR(50),
     prd_start_dt    TIMESTAMP,
-    prd_end_dt    TIMESTAMP,
-    _ingested_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    prd_end_dt    TIMESTAMP
   );
 
 -- 3. CRM  Sales Details
@@ -46,15 +44,13 @@ CREATE TABLE bronze.crm_sales_details (
     sls_due_dt    INT,
     sls_sales    INT,
     sls_quantity    INT,
-    sls_price    INT,
-    _ingested_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    sls_price    INT
 );
 
 -- 4. ERP Location
 DROP TABLE IF EXISTS bronze.erp_loc_a101 (
   cid    VARCHAR(50),
-  cntry    VARCHAR(50),
-  _ingested_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  cntry    VARCHAR(50)
 );
 
 -- 5. ERP Customer (AZ12)
@@ -62,8 +58,7 @@ DROP TABLE IF EXISTS bronze.erp_cust_az12;
 CREATE TABLE bronze.erp_cust_az12 (
   cid    VARCHAR(50),
   bdate    DATE,
-  gen    VARCHAR(50),
-  _ingested_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  gen    VARCHAR(50)
 );
 
 -- 6. ERP Product Category (G1V2)
@@ -72,6 +67,5 @@ CREATE TABLE bronze.erp_prd_cat_g1v2 (
   id    VARCHAR(50),
   cat    VARCHAR(50),
   subcat    VARCHAR(50),
-  maintenance    VARCHAR(50),
-  _ingested_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  maintenance    VARCHAR(50)
 );
