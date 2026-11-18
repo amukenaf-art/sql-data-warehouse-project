@@ -48,7 +48,8 @@ CREATE TABLE bronze.crm_sales_details (
 );
 
 -- 4. ERP Location
-DROP TABLE IF EXISTS bronze.erp_loc_a101 (
+DROP TABLE IF EXISTS bronze.erp_loc_a101 
+CREATE TABLE bronze.erp_loc_a101 (
   cid    VARCHAR(50),
   cntry    VARCHAR(50)
 );
